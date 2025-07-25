@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 import com.example.demo.Model.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,5 +26,8 @@ public Map<String, Object> sub(@RequestBody Model s) {
     response.put("gender",s.getGender());
     return response;
 }
-
+@GetMapping("/{type}/{id}")
+public String getEntity(@PathVariable String type, @PathVariable int id) {
+    return "Type: " + type + ", ID: " + id;
+}
 }
